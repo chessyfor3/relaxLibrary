@@ -1,0 +1,1837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Library">
+  <ClassDiagramComponents>
+    <Class name="AddBookController" package="library.controller" visibility="public" xPosition="-128.0" yPosition="-206.0">
+      <Fields>
+        <Field name="previous" type="Thread" visibility="private" isFinal="true"/>
+        <Field name="form" type="AddBook" visibility="private"/>
+        <Field name="edit" type="boolean" visibility="private"/>
+        <Field name="book" type="Book" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+        <Field name="bookdb" type="db_book" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thread" name="previous"/>
+          <Argument type="String" name="admin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="emptyFields" returnType="boolean" visibility="private"/>
+        <Method name="saveEdit" returnType="void" visibility="private"/>
+        <Method name="deleteBook" returnType="void" visibility="private"/>
+        <Method name="resetFields" returnType="void" visibility="private"/>
+        <Method name="editBook" returnType="void" visibility="private"/>
+        <Method name="saveBook" returnType="void" visibility="private"/>
+        <Method name="setBook" returnType="void" visibility="private">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="setOtherInfo" returnType="void" visibility="private"/>
+        <Method name="setTable" returnType="void" visibility="private"/>
+        <Method name="checkFields" returnType="void" visibility="private"/>
+        <Method name="initAddBook" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdminController" package="library.controller" visibility="public" xPosition="135.0" yPosition="-294.0">
+      <Fields>
+        <Field name="frame" type="AdminSettings" visibility="private"/>
+        <Field name="admin" type="Admin" visibility="private"/>
+        <Field name="borrower" type="Borrower" visibility="private"/>
+        <Field name="tempPass" type="String" visibility="private"/>
+        <Field name="initialize" type="boolean" visibility="private" isFinal="true"/>
+        <Field name="edit" type="boolean" visibility="private"/>
+        <Field name="changepass" type="boolean" visibility="private"/>
+        <Field name="user" type="String" visibility="private" isFinal="true"/>
+        <Field name="addb" type="db_admin" visibility="private" isFinal="true"/>
+        <Field name="bordb" type="db_borrower" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="boolean" name="init"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="cancelEdit" returnType="void" visibility="private"/>
+        <Method name="editFields" returnType="void" visibility="private"/>
+        <Method name="disableFields" returnType="void" visibility="private"/>
+        <Method name="enableFields" returnType="void" visibility="private"/>
+        <Method name="saveConfirm" returnType="void" visibility="private"/>
+        <Method name="cancelChange" returnType="void" visibility="private"/>
+        <Method name="resetButtons" returnType="void" visibility="private"/>
+        <Method name="savePass" returnType="void" visibility="private"/>
+        <Method name="changePass" returnType="void" visibility="private"/>
+        <Method name="checkFields" returnType="void" visibility="private"/>
+        <Method name="capitalizeFirstLetters" returnType="String" visibility="private">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="saveEdit" returnType="void" visibility="private"/>
+        <Method name="setFields" returnType="void" visibility="private"/>
+        <Method name="saveBorrower" returnType="void" visibility="private"/>
+        <Method name="saveAdmin" returnType="void" visibility="private"/>
+        <Method name="setBorrower" returnType="void" visibility="private"/>
+        <Method name="setAdmin" returnType="void" visibility="private"/>
+        <Method name="init" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="BorrowerController" package="library.controller" visibility="public" xPosition="506.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="BorrowerFrame" visibility="private"/>
+        <Field name="borrower" type="Borrower" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+        <Field name="borrower_id" type="int" visibility="private"/>
+        <Field name="edit" type="boolean" visibility="private"/>
+        <Field name="previous" type="Thread" visibility="private" isFinal="true"/>
+        <Field name="bordb" type="db_borrower" visibility="private" isFinal="true"/>
+        <Field name="addb" type="db_admin" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thread" name="previous"/>
+          <Argument type="String" name="user"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="emptyFields" returnType="boolean" visibility="private"/>
+        <Method name="saveEdit" returnType="void" visibility="private"/>
+        <Method name="deleteBorrower" returnType="void" visibility="private"/>
+        <Method name="editBorrower" returnType="void" visibility="private"/>
+        <Method name="getID" returnType="int" visibility="private"/>
+        <Method name="setBorrower" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="capitalizeFirstLetters" returnType="String" visibility="private">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="saveBorrower" returnType="void" visibility="private"/>
+        <Method name="resetFields" returnType="void" visibility="private"/>
+        <Method name="checkFields" returnType="void" visibility="private"/>
+        <Method name="setTable" returnType="void" visibility="private"/>
+        <Method name="init" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ChargeOutController" package="library.controller" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="ChargeOutForm" visibility="private"/>
+        <Field name="book" type="Book" visibility="private"/>
+        <Field name="borrower" type="Borrower" visibility="private"/>
+        <Field name="circulation" type="Circulation" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+        <Field name="previous" type="Thread" visibility="private" isFinal="true"/>
+        <Field name="main" type="ChargeOutController" visibility="private" isFinal="true"/>
+        <Field name="cirdb" type="db_circulation" visibility="private" isFinal="true"/>
+        <Field name="bookdb" type="db_book" visibility="private" isFinal="true"/>
+        <Field name="bordb" type="db_borrower" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thread" name="previous"/>
+          <Argument type="String" name="admin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="emptyFields" returnType="boolean" visibility="private"/>
+        <Method name="setBorrower" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setBook" returnType="void" visibility="private">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="updateBorrower" returnType="int" visibility="private"/>
+        <Method name="saveBorrower" returnType="void" visibility="private"/>
+        <Method name="saveCirculation" returnType="void" visibility="private"/>
+        <Method name="capitalizeFirstLetters" returnType="String" visibility="private">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="getBorrowerID" returnType="int" visibility="private">
+          <Argument type="int" name="idx"/>
+        </Method>
+        <Method name="setBorrowFieldsBlack" returnType="void" visibility="private"/>
+        <Method name="setBorrowFieldsGreen" returnType="void" visibility="private"/>
+        <Method name="phonecheck" returnType="boolean" visibility="private">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="addFocusListener" returnType="void" visibility="private"/>
+        <Method name="checkOtherFields" returnType="void" visibility="private"/>
+        <Method name="ifExists" returnType="void" visibility="private"/>
+        <Method name="checkBorrowerFields" returnType="void" visibility="private"/>
+        <Method name="chargeOutMode" returnType="void" visibility="private"/>
+        <Method name="initController" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="HomeController" package="library.controller" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="Home" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="initHome" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LoginController" package="library.controller" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="loginFrame" type="LoginPage" visibility="private"/>
+        <Field name="admin" type="Admin" visibility="private"/>
+        <Field name="addb" type="db_admin" visibility="private" isFinal="true"/>
+        <Field name="code" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+        <Method name="signup" returnType="void" visibility="private"/>
+        <Method name="signCheckFields" returnType="void" visibility="private"/>
+        <Method name="loginCheckFields" returnType="void" visibility="private"/>
+        <Method name="initLogin" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="mainMenu" package="library.controller" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TransDetailsController" package="library.controller" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="frame" type="TransactionDetails" visibility="private"/>
+        <Field name="book" type="Book" visibility="private"/>
+        <Field name="borrower" type="Borrower" visibility="private"/>
+        <Field name="circulation" type="Circulation" visibility="private"/>
+        <Field name="ret" type="boolean" visibility="private"/>
+        <Field name="extend" type="boolean" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+        <Field name="previous" type="Thread" visibility="private" isFinal="true"/>
+        <Field name="circulation_id" type="int" visibility="private"/>
+        <Field name="bookdb" type="db_book" visibility="private" isFinal="true"/>
+        <Field name="cirdb" type="db_circulation" visibility="private" isFinal="true"/>
+        <Field name="bordb" type="db_borrower" visibility="private" isFinal="true"/>
+        <Field name="retdb" type="db_return" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thread" name="previous"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="admin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="emptyFields" returnType="boolean" visibility="private"/>
+        <Method name="getID" returnType="int" visibility="private"/>
+        <Method name="deleteRecord" returnType="void" visibility="private"/>
+        <Method name="saveExtend" returnType="void" visibility="private"/>
+        <Method name="saveReturned" returnType="void" visibility="private"/>
+        <Method name="setCirculation" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setBorrower" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setBook" returnType="void" visibility="private">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="updateButtons" returnType="void" visibility="private"/>
+        <Method name="setFields" returnType="void" visibility="private"/>
+        <Method name="init" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ViewListController" package="library.controller" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="frame" type="ViewList" visibility="private"/>
+        <Field name="control" type="ViewListController" visibility="private" isFinal="true"/>
+        <Field name="previous" type="Thread" visibility="private" isFinal="true"/>
+        <Field name="option" type="String" visibility="private"/>
+        <Field name="book" type="Book" visibility="private"/>
+        <Field name="borrower" type="Borrower" visibility="private"/>
+        <Field name="circulation" type="Circulation" visibility="private"/>
+        <Field name="admin" type="String" visibility="private" isFinal="true"/>
+        <Field name="bookdb" type="db_book" visibility="private" isFinal="true"/>
+        <Field name="cirdb" type="db_circulation" visibility="private" isFinal="true"/>
+        <Field name="bordb" type="db_borrower" visibility="private" isFinal="true"/>
+        <Field name="ret" type="db_return" visibility="private" isFinal="true"/>
+        <Field name="addb" type="db_admin" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Thread" name="previous"/>
+          <Argument type="String" name="admin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="deleteReturn" returnType="void" visibility="private"/>
+        <Method name="deleteCirculation" returnType="void" visibility="private"/>
+        <Method name="deleteBorrower" returnType="void" visibility="private"/>
+        <Method name="deleteBook" returnType="void" visibility="private"/>
+        <Method name="returnBook" returnType="void" visibility="private"/>
+        <Method name="getReturnID" returnType="int" visibility="private"/>
+        <Method name="getCirculationID" returnType="int" visibility="private"/>
+        <Method name="getISBN" returnType="String" visibility="private"/>
+        <Method name="getBorrowerID" returnType="int" visibility="private"/>
+        <Method name="setCirculation" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setBorrower" returnType="void" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="setBook" returnType="void" visibility="private">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="headUnreturned" returnType="String[]" visibility="private"/>
+        <Method name="objUnreturned" returnType="Object[][]" visibility="private"/>
+        <Method name="headReturned" returnType="String[]" visibility="private"/>
+        <Method name="objReturned" returnType="Object[][]" visibility="private"/>
+        <Method name="headBorrowers" returnType="String[]" visibility="private"/>
+        <Method name="objBorrowers" returnType="Object[][]" visibility="private"/>
+        <Method name="headCirculations" returnType="String[]" visibility="private"/>
+        <Method name="objTransactions" returnType="Object[][]" visibility="private"/>
+        <Method name="headBooks" returnType="String[]" visibility="private"/>
+        <Method name="objBookList" returnType="Object[][]" visibility="private"/>
+        <Method name="initButtons" returnType="void" visibility="private"/>
+        <Method name="initController" returnType="void" visibility="private"/>
+        <Method name="currentDateTime" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="library.model" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="username" type="String" visibility="private" isFinal="true"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="borrower_id" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="setBorrower_id" returnType="void" visibility="public">
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="getBorrower_id" returnType="int" visibility="public"/>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Book" package="library.model" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="ISBN" type="String" visibility="private"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="author" type="String" visibility="private"/>
+        <Field name="publisher" type="String" visibility="private"/>
+        <Field name="quantity" type="int" visibility="private"/>
+        <Field name="availableCount" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="ISBN"/>
+          <Argument type="String" name="bookTitle"/>
+          <Argument type="String" name="author"/>
+          <Argument type="String" name="publisher"/>
+          <Argument type="int" name="quantity"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getISBN" returnType="String" visibility="public"/>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="getAuthor" returnType="String" visibility="public"/>
+        <Method name="getPublisher" returnType="String" visibility="public"/>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="getAvailableCount" returnType="int" visibility="public"/>
+        <Method name="setISBN" returnType="void" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="setAuthor" returnType="void" visibility="public">
+          <Argument type="String" name="author"/>
+        </Method>
+        <Method name="setPublisher" returnType="void" visibility="public">
+          <Argument type="String" name="publisher"/>
+        </Method>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="setAvailableCount" returnType="void" visibility="public">
+          <Argument type="int" name="availableCount"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Borrower" package="library.model" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="firstname" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="contactNo" type="String" visibility="private"/>
+        <Field name="borrowQty" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="firstname"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="contactNo"/>
+          <Argument type="int" name="borrowQty"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFirstname" returnType="String" visibility="public"/>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="getContactNo" returnType="String" visibility="public"/>
+        <Method name="getBorrowQty" returnType="int" visibility="public"/>
+        <Method name="setFirstname" returnType="void" visibility="public">
+          <Argument type="String" name="firstname"/>
+        </Method>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="setContactNo" returnType="void" visibility="public">
+          <Argument type="String" name="contactNo"/>
+        </Method>
+        <Method name="setBorrowQty" returnType="void" visibility="public">
+          <Argument type="int" name="borrowQty"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Circulation" package="library.model" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="dateOut" type="String" visibility="private" isFinal="true"/>
+        <Field name="dueBack" type="String" visibility="private"/>
+        <Field name="borrowQty" type="int" visibility="private"/>
+        <Field name="book_ISBN" type="String" visibility="private" isFinal="true"/>
+        <Field name="borrower_id" type="int" visibility="private" isFinal="true"/>
+        <Field name="returnQty" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dateOut"/>
+          <Argument type="String" name="dueBack"/>
+          <Argument type="int" name="borrowQty"/>
+          <Argument type="String" name="book_ISBN"/>
+          <Argument type="int" name="borrower_id"/>
+          <Argument type="int" name="returnQty"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDateOut" returnType="String" visibility="public"/>
+        <Method name="getDueBack" returnType="String" visibility="public"/>
+        <Method name="getBorrowQty" returnType="int" visibility="public"/>
+        <Method name="getBook_ISBN" returnType="String" visibility="public"/>
+        <Method name="getBorrower_id" returnType="int" visibility="public"/>
+        <Method name="getReturnQty" returnType="int" visibility="public"/>
+        <Method name="setDueBack" returnType="void" visibility="public">
+          <Argument type="String" name="dueBack"/>
+        </Method>
+        <Method name="setBorrowQty" returnType="void" visibility="public">
+          <Argument type="int" name="borrowQty"/>
+        </Method>
+        <Method name="setReturnQty" returnType="void" visibility="public">
+          <Argument type="int" name="returnQty"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="db_admin" package="library.util" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="db" type="db_connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="save" returnType="int" visibility="public">
+          <Argument type="Admin" name="admin"/>
+        </Method>
+        <Method name="updatePassword" returnType="int" visibility="public">
+          <Argument type="String" name="pass"/>
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="updateBorrowerID" returnType="int" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="deleteOne" returnType="int" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="selectByBorrower" returnType="ResultSet" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="selectOne" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="selectAll" returnType="ResultSet" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="db_book" package="library.util" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="db" type="db_connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="saveToDB" returnType="int" visibility="public">
+          <Argument type="Book" name="book"/>
+        </Method>
+        <Method name="updateAllFields" returnType="int" visibility="public">
+          <Argument type="String" name="ISBN"/>
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="author"/>
+          <Argument type="String" name="publisher"/>
+          <Argument type="int" name="qty"/>
+          <Argument type="int" name="available"/>
+          <Argument type="String" name="oldISBN"/>
+        </Method>
+        <Method name="updateQuantity" returnType="int" visibility="public">
+          <Argument type="int" name="data"/>
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="updateAvailable" returnType="int" visibility="public">
+          <Argument type="int" name="data"/>
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="deleteOne" returnType="int" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="deleteAll" returnType="int" visibility="public"/>
+        <Method name="selectOne" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="selectAll" returnType="ResultSet" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="db_borrower" package="library.util" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="db" type="db_connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="saveBorrower" returnType="int" visibility="public">
+          <Argument type="Borrower" name="borrower"/>
+        </Method>
+        <Method name="updateQty" returnType="int" visibility="public">
+          <Argument type="int" name="qty"/>
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="updateFirstname" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="updateLastname" returnType="int" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="updateEmail" returnType="int" visibility="public">
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="updatePhone" returnType="int" visibility="public">
+          <Argument type="String" name="phone"/>
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="selectOne" returnType="ResultSet" visibility="public">
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="selectAll" returnType="ResultSet" visibility="public"/>
+        <Method name="count" returnType="int" visibility="public"/>
+        <Method name="deleteOne" returnType="int" visibility="public">
+          <Argument type="int" name="borrower_id"/>
+        </Method>
+        <Method name="deleteAll" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="db_circulation" package="library.util" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="db" type="db_connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="saveCirculation" returnType="int" visibility="public">
+          <Argument type="Circulation" name="data"/>
+        </Method>
+        <Method name="updateQty" returnType="int" visibility="public">
+          <Argument type="int" name="borrowQty"/>
+          <Argument type="int" name="returnQty"/>
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="updateDueDate" returnType="int" visibility="public">
+          <Argument type="String" name="date"/>
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="selectAll" returnType="ResultSet" visibility="public"/>
+        <Method name="selectOne" returnType="ResultSet" visibility="public">
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="deleteOne" returnType="int" visibility="public">
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="deleteAll" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="db_connection" package="library.util" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+        <Field name="st" type="Statement" visibility="private"/>
+        <Field name="rs" type="ResultSet" visibility="private"/>
+        <Field name="p" type="PreparedStatement" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="prepare" returnType="PreparedStatement" visibility="public">
+          <Argument type="String" name="query"/>
+        </Method>
+        <Method name="executeUpdate" returnType="int" visibility="public">
+          <Argument type="String" name="query"/>
+        </Method>
+        <Method name="execute" returnType="ResultSet" visibility="public">
+          <Argument type="String" name="query"/>
+        </Method>
+        <Method name="executePrepare" returnType="ResultSet" visibility="public">
+          <Argument type="PreparedStatement" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="db_return" package="library.util" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="db" type="db_connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="save" returnType="int" visibility="public">
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="deleteMultiple" returnType="int" visibility="public">
+          <Argument type="int" name="cir_id"/>
+        </Method>
+        <Method name="deleteOne" returnType="int" visibility="public">
+          <Argument type="int" name="ret_id"/>
+        </Method>
+        <Method name="deleteAll" returnType="int" visibility="public"/>
+        <Method name="selectOne" returnType="ResultSet" visibility="public">
+          <Argument type="int" name="ret_id"/>
+        </Method>
+        <Method name="selectAll" returnType="ResultSet" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddBook" package="library.view" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="table" type="JTable" visibility="private"/>
+        <Field name="ISBN" type="javax.swing.JFormattedTextField" visibility="private"/>
+        <Field name="addBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="author" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="availLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="available" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="backBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="borrowerMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="chargeMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="circMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="deleteBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="editBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="jMenuItem1" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="noOfTypes" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="publisher" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="qtyBorrowed" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="qtyOnHand" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="quantity" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="result" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="returnMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="tablePane" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="title" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="totalNo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewMenu" type="javax.swing.JMenuItem" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initTable" returnType="void" visibility="public">
+          <Argument type="Object[][]" name="data"/>
+          <Argument type="String[]" name="header"/>
+        </Method>
+        <Method name="tableFirstCol" returnType="String" visibility="public">
+          <Argument type="int" name="row"/>
+        </Method>
+        <Method name="tableSelectedRow" returnType="int" visibility="public"/>
+        <Method name="tableAddListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="action"/>
+        </Method>
+        <Method name="hideAvailable" returnType="void" visibility="public"/>
+        <Method name="showAvailable" returnType="void" visibility="public"/>
+        <Method name="enableAllFields" returnType="void" visibility="public"/>
+        <Method name="enableAddBtn" returnType="void" visibility="public"/>
+        <Method name="enableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="enableEditBtn" returnType="void" visibility="public"/>
+        <Method name="enableISBN" returnType="void" visibility="public"/>
+        <Method name="enableTitle" returnType="void" visibility="public"/>
+        <Method name="enableAuthor" returnType="void" visibility="public"/>
+        <Method name="enablePublisher" returnType="void" visibility="public"/>
+        <Method name="enableQty" returnType="void" visibility="public"/>
+        <Method name="disableAllFields" returnType="void" visibility="public"/>
+        <Method name="disableAddBtn" returnType="void" visibility="public"/>
+        <Method name="disableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="disableEditBtn" returnType="void" visibility="public"/>
+        <Method name="disableISBN" returnType="void" visibility="public"/>
+        <Method name="disableTitle" returnType="void" visibility="public"/>
+        <Method name="disableAuthor" returnType="void" visibility="public"/>
+        <Method name="disablePublisher" returnType="void" visibility="public"/>
+        <Method name="disableQty" returnType="void" visibility="public"/>
+        <Method name="userSettingsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="userLogoutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="addBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="deleteBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="backBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="editBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="returnMenuListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="chargeMenuListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="borrowersListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="viewMenuListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="resetResult" returnType="void" visibility="public"/>
+        <Method name="setResult" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="resetAllTextFields" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="int" name="qty"/>
+        </Method>
+        <Method name="setDeleteBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="setEditBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="setAddBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="setISBN" returnType="void" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="setAuthor" returnType="void" visibility="public">
+          <Argument type="String" name="author"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setNoOfTypes" returnType="void" visibility="public">
+          <Argument type="String" name="noOfTypes"/>
+        </Method>
+        <Method name="setPublisher" returnType="void" visibility="public">
+          <Argument type="String" name="publisher"/>
+        </Method>
+        <Method name="setQtyBorrowed" returnType="void" visibility="public">
+          <Argument type="String" name="qtyBorrowed"/>
+        </Method>
+        <Method name="setQtyOnHand" returnType="void" visibility="public">
+          <Argument type="String" name="qtyOnHand"/>
+        </Method>
+        <Method name="setMaxQty" returnType="void" visibility="public">
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="setMinQty" returnType="void" visibility="public">
+          <Argument type="int" name="min"/>
+        </Method>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="setBookTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="setTotalNo" returnType="void" visibility="public">
+          <Argument type="String" name="totalNo"/>
+        </Method>
+        <Method name="setUserMenu" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="setAvailable" returnType="void" visibility="public">
+          <Argument type="String" name="num"/>
+        </Method>
+        <Method name="getISBN" returnType="String" visibility="public"/>
+        <Method name="getBookTitle" returnType="String" visibility="public"/>
+        <Method name="getAuthor" returnType="String" visibility="public"/>
+        <Method name="getPublisher" returnType="String" visibility="public"/>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AdminSettings" package="library.view" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Fields>
+        <Field name="changepass" type="javax.swing.JButton" visibility="private"/>
+        <Field name="email" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="firstname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="home" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="lastname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="logout" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="passLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="password" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="phone" type="javax.swing.JFormattedTextField" visibility="private"/>
+        <Field name="result" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="saveBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="username" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="verify" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="enableHome" returnType="void" visibility="public"/>
+        <Method name="enableLogout" returnType="void" visibility="public"/>
+        <Method name="enableSave" returnType="void" visibility="public"/>
+        <Method name="showVerify" returnType="void" visibility="public"/>
+        <Method name="enableVerify" returnType="void" visibility="public"/>
+        <Method name="enableChangepass" returnType="void" visibility="public"/>
+        <Method name="enablePass" returnType="void" visibility="public"/>
+        <Method name="enableFirstname" returnType="void" visibility="public"/>
+        <Method name="enableLastname" returnType="void" visibility="public"/>
+        <Method name="enableEmail" returnType="void" visibility="public"/>
+        <Method name="enablePhone" returnType="void" visibility="public"/>
+        <Method name="disableHome" returnType="void" visibility="public"/>
+        <Method name="disableLogout" returnType="void" visibility="public"/>
+        <Method name="disableSave" returnType="void" visibility="public"/>
+        <Method name="hideVerify" returnType="void" visibility="public"/>
+        <Method name="disableVerify" returnType="void" visibility="public"/>
+        <Method name="disableChangepass" returnType="void" visibility="public"/>
+        <Method name="disablePass" returnType="void" visibility="public"/>
+        <Method name="disableFirstname" returnType="void" visibility="public"/>
+        <Method name="disableLastname" returnType="void" visibility="public"/>
+        <Method name="disableEmail" returnType="void" visibility="public"/>
+        <Method name="disablePhone" returnType="void" visibility="public"/>
+        <Method name="saveBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="homeListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="action"/>
+        </Method>
+        <Method name="logoutListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="action"/>
+        </Method>
+        <Method name="changepassListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="verifyListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="resetResult" returnType="void" visibility="public"/>
+        <Method name="setResult" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="setPassLabel" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+        </Method>
+        <Method name="saveBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="changepassText" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="setFirstname" returnType="void" visibility="public">
+          <Argument type="String" name="firstname"/>
+        </Method>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="setPhone" returnType="void" visibility="public">
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="setUsername" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="getFirstname" returnType="String" visibility="public"/>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="getPhone" returnType="String" visibility="public"/>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BorrowerFrame" package="library.view" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields>
+        <Field name="table" type="JTable" visibility="private"/>
+        <Field name="addBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="backBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="booksMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="chargeMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="circulation" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="deleteBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="editBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="email" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="fname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="home" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="phone" type="javax.swing.JFormattedTextField" visibility="private"/>
+        <Field name="qty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="qtyLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="result" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="returnMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="tablePane" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="total" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="totalLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewMenu" type="javax.swing.JMenuItem" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initTable" returnType="void" visibility="public">
+          <Argument type="Object[][]" name="data"/>
+          <Argument type="String[]" name="header"/>
+        </Method>
+        <Method name="tableFirstCol" returnType="String" visibility="public">
+          <Argument type="int" name="row"/>
+        </Method>
+        <Method name="tableSelectedRow" returnType="int" visibility="public"/>
+        <Method name="tableAddListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="action"/>
+        </Method>
+        <Method name="hideQty" returnType="void" visibility="public"/>
+        <Method name="showQty" returnType="void" visibility="public"/>
+        <Method name="addBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="editBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="deleteBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="backBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="userSettingsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="homeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="chargeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="returnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="booksListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="viewListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="userLogoutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="addBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="editBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="setFname" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="setLname" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="setPhone" returnType="void" visibility="public">
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="setQty" returnType="void" visibility="public">
+          <Argument type="String" name="qty"/>
+        </Method>
+        <Method name="resetResult" returnType="void" visibility="public"/>
+        <Method name="setResult" returnType="void" visibility="public">
+          <Argument type="String" name="result"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="setTotal" returnType="void" visibility="public">
+          <Argument type="String" name="total"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="getFname" returnType="String" visibility="public"/>
+        <Method name="getLname" returnType="String" visibility="public"/>
+        <Method name="getPhone" returnType="String" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ChargeOutForm" package="library.view" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields>
+        <Field name="ISBNLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="bookAuthor" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookAvailable" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookISBN" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="bookInfo" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="bookPublisher" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookTitle" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="booksMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="borrIDLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="borrowQty" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="borrowerEmail" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borrowerFirstname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borrowerID" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="borrowerInfo" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="borrowerLastname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borrowerPhone" type="javax.swing.JFormattedTextField" visibility="private"/>
+        <Field name="borrowersMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="cancelBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="circulation" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="dueDate" type="com.toedter.calendar.JDateChooser" visibility="private"/>
+        <Field name="home" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="menu" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="qtyBorrLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="qtyRetLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="resultMessage" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="returnMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="returnQty" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="submitBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewTransBtn" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="homeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="settingsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="logoutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="returnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="booksListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="borrowersListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="viewListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="viewTransListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="borrowerFirstname" returnType="void" visibility="public">
+          <Argument type="Border" name="border"/>
+        </Method>
+        <Method name="borrowerLastname" returnType="void" visibility="public">
+          <Argument type="Border" name="border"/>
+        </Method>
+        <Method name="borrowerEmail" returnType="void" visibility="public">
+          <Argument type="Border" name="border"/>
+        </Method>
+        <Method name="borrowerPhone" returnType="void" visibility="public">
+          <Argument type="Border" name="border"/>
+        </Method>
+        <Method name="setPhoneVal" returnType="void" visibility="public">
+          <Argument type="String" name="value"/>
+        </Method>
+        <Method name="addDueDateListener" returnType="void" visibility="public">
+          <Argument type="FocusListener" name="evt"/>
+        </Method>
+        <Method name="addBorrowerListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="addISBNListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="addChargeOutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="resetResultMessage" returnType="void" visibility="public"/>
+        <Method name="setResultMessage" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="setBorrowerFields" returnType="void" visibility="public">
+          <Argument type="String" name="fname"/>
+          <Argument type="String" name="lname"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="emptyBorrowerFields" returnType="void" visibility="public"/>
+        <Method name="setBorrowQty" returnType="void" visibility="public">
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="emptyBookFields" returnType="void" visibility="public"/>
+        <Method name="setBorrowerDefault" returnType="void" visibility="public"/>
+        <Method name="setBookISBN" returnType="void" visibility="public">
+          <Argument type="String" name="ISBN"/>
+        </Method>
+        <Method name="setBookFields" returnType="void" visibility="public">
+          <Argument type="String" name="bookTitle"/>
+          <Argument type="String" name="bookAuthor"/>
+          <Argument type="String" name="bookPublisher"/>
+          <Argument type="String" name="bookQty"/>
+          <Argument type="String" name="bookAvailable"/>
+        </Method>
+        <Method name="addBookISBN" returnType="void" visibility="public">
+          <Argument type="String" name="bookISBN"/>
+        </Method>
+        <Method name="setBorrowerEmail" returnType="void" visibility="public">
+          <Argument type="String" name="borrowerEmail"/>
+        </Method>
+        <Method name="setBorrowerFirstname" returnType="void" visibility="public">
+          <Argument type="String" name="borrowerFirstname"/>
+        </Method>
+        <Method name="addBorrowerID" returnType="void" visibility="public">
+          <Argument type="String" name="borrowerID"/>
+        </Method>
+        <Method name="setBorrowerLastname" returnType="void" visibility="public">
+          <Argument type="String" name="borrowerLastname"/>
+        </Method>
+        <Method name="setBorrowerPhone" returnType="void" visibility="public">
+          <Argument type="String" name="borrowerPhone"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="getBookAuthor" returnType="String" visibility="public"/>
+        <Method name="getBookAvailable" returnType="String" visibility="public"/>
+        <Method name="getBookISBN" returnType="String" visibility="public"/>
+        <Method name="getBookPublisher" returnType="String" visibility="public"/>
+        <Method name="getBookQty" returnType="int" visibility="public"/>
+        <Method name="getBookTitle" returnType="String" visibility="public"/>
+        <Method name="disableBorrowerID" returnType="void" visibility="public"/>
+        <Method name="disableISBN" returnType="void" visibility="public"/>
+        <Method name="disableBorrowerFields" returnType="void" visibility="public"/>
+        <Method name="enableBorrowerFields" returnType="void" visibility="public"/>
+        <Method name="getDueDate" returnType="String" visibility="public"/>
+        <Method name="getBorrowQty" returnType="int" visibility="public"/>
+        <Method name="getBorrowerEmail" returnType="String" visibility="public"/>
+        <Method name="getBorrowerFirstname" returnType="String" visibility="public"/>
+        <Method name="getBorrowerIdx" returnType="int" visibility="public"/>
+        <Method name="getBorrowerLastname" returnType="String" visibility="public"/>
+        <Method name="getBorrowerPhone" returnType="String" visibility="public"/>
+        <Method name="addFirstnameListener" returnType="void" visibility="public">
+          <Argument type="FocusListener" name="focus"/>
+        </Method>
+        <Method name="addLastnameListener" returnType="void" visibility="public">
+          <Argument type="FocusListener" name="focus"/>
+        </Method>
+        <Method name="addEmailListener" returnType="void" visibility="public">
+          <Argument type="FocusListener" name="focus"/>
+        </Method>
+        <Method name="addPhoneListener" returnType="void" visibility="public">
+          <Argument type="FocusListener" name="focus"/>
+        </Method>
+        <Method name="addCancelLisener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="dueDateFormat" returnType="void" visibility="public">
+          <Argument type="String" name="format"/>
+        </Method>
+        <Method name="setBorQtyVal" returnType="void" visibility="public">
+          <Argument type="int" name="val"/>
+        </Method>
+        <Method name="setRetQtyVal" returnType="void" visibility="public">
+          <Argument type="int" name="val"/>
+        </Method>
+        <Method name="showReturnQty" returnType="void" visibility="public"/>
+        <Method name="hideReturnQty" returnType="void" visibility="public"/>
+        <Method name="setReturnQty" returnType="void" visibility="public">
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="disableDueDate" returnType="void" visibility="public"/>
+        <Method name="enableDueDate" returnType="void" visibility="public"/>
+        <Method name="setDueDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="setQtyBorrLabel" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="ISBNLabel" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="setBorrIDLabel" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="disableBorrQty" returnType="void" visibility="public"/>
+        <Method name="enableBorrQty" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Home" package="library.view" visibility="public" xPosition="2120.0" yPosition="820.0">
+      <Fields>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="booksPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="borrowersPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="circulationPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jProgressBar1" type="javax.swing.JProgressBar" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="menu" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewPanel" type="javax.swing.JPanel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="getBooksPanel" returnType="JPanel" visibility="public"/>
+        <Method name="getBorrowsPanel" returnType="JPanel" visibility="public"/>
+        <Method name="getCirculationPanel" returnType="JPanel" visibility="public"/>
+        <Method name="getViewPanel" returnType="JPanel" visibility="public"/>
+        <Method name="borrowersMouseListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="evt"/>
+        </Method>
+        <Method name="booksMouseListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="evt"/>
+        </Method>
+        <Method name="circulationMouseListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="evt"/>
+        </Method>
+        <Method name="viewMouseListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="evt"/>
+        </Method>
+        <Method name="userLogout" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="userSettings" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="JPanel" name="panel"/>
+        </Method>
+        <Method name="resetColor" returnType="void" visibility="public">
+          <Argument type="JPanel" name="panel"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LoginPage" package="library.view" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="code" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="loginBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="loginPassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="loginUsername" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="menu" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="message" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="newconfpass" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="newpass" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="result" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="signup" type="javax.swing.JButton" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="username" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="setResult" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="getCode" returnType="String" visibility="public"/>
+        <Method name="getSignUsername" returnType="String" visibility="public"/>
+        <Method name="getNewconfpass" returnType="String" visibility="public"/>
+        <Method name="getNewpass" returnType="String" visibility="public"/>
+        <Method name="signupListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="loginListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="showDialogMessage" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TransactionDetails" package="library.view" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields>
+        <Field name="backBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="bookAuthor" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookAvailable" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookISBN" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookPublisher" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="bookTitle" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="booksMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="borr_email" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borr_id" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borr_name" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borr_phone" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borrowQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="borrowersMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="chargeMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="deleteBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="dueDate" type="com.toedter.calendar.JDateChooser" visibility="private"/>
+        <Field name="extendBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="home" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMenu1" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="jMenuItem2" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="refNo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="refNoList" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="resultMessage" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="returnBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="returnQty" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="returnedQty" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="saveBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="viewMenu" type="javax.swing.JMenuItem" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="disableRefNoList" returnType="void" visibility="public"/>
+        <Method name="disableSaveBtn" returnType="void" visibility="public"/>
+        <Method name="enableSaveBtn" returnType="void" visibility="public"/>
+        <Method name="disableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="enableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="disableRetQty" returnType="void" visibility="public"/>
+        <Method name="enableRetQty" returnType="void" visibility="public"/>
+        <Method name="disableDueDate" returnType="void" visibility="public"/>
+        <Method name="enableDueDate" returnType="void" visibility="public"/>
+        <Method name="enableReturnBtn" returnType="void" visibility="public"/>
+        <Method name="disableReturnBtn" returnType="void" visibility="public"/>
+        <Method name="enableExtendBtn" returnType="void" visibility="public"/>
+        <Method name="disableExtendBtn" returnType="void" visibility="public"/>
+        <Method name="homeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="settingsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="logoutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="chargeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="booksListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="borrowersListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="viewListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="refNoListListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="returnBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="extendBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="deleteBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="saveBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="backBtnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="getRefNoSelected" returnType="String" visibility="public">
+          <Argument type="int" name="idx"/>
+        </Method>
+        <Method name="getReferenceIdx" returnType="int" visibility="public"/>
+        <Method name="getDueDate" returnType="String" visibility="public"/>
+        <Method name="getRefNo" returnType="String" visibility="public"/>
+        <Method name="getReturnQty" returnType="int" visibility="public"/>
+        <Method name="addRefNo" returnType="void" visibility="public">
+          <Argument type="String" name="num"/>
+        </Method>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="setDateMenu" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setTimeMenu" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="setBookAuthor" returnType="void" visibility="public">
+          <Argument type="String" name="bookAuthor"/>
+        </Method>
+        <Method name="setBookAvailable" returnType="void" visibility="public">
+          <Argument type="String" name="bookAvailable"/>
+        </Method>
+        <Method name="setBookISBN" returnType="void" visibility="public">
+          <Argument type="String" name="bookISBN"/>
+        </Method>
+        <Method name="setBookPublisher" returnType="void" visibility="public">
+          <Argument type="String" name="bookPublisher"/>
+        </Method>
+        <Method name="setBookQty" returnType="void" visibility="public">
+          <Argument type="String" name="bookQty"/>
+        </Method>
+        <Method name="setBookTitle" returnType="void" visibility="public">
+          <Argument type="String" name="bookTitle"/>
+        </Method>
+        <Method name="setBorr_email" returnType="void" visibility="public">
+          <Argument type="String" name="borr_email"/>
+        </Method>
+        <Method name="setBorr_id" returnType="void" visibility="public">
+          <Argument type="String" name="borr_id"/>
+        </Method>
+        <Method name="setBorr_name" returnType="void" visibility="public">
+          <Argument type="String" name="borr_name"/>
+        </Method>
+        <Method name="setBorr_phone" returnType="void" visibility="public">
+          <Argument type="String" name="borr_phone"/>
+        </Method>
+        <Method name="setBorrowQty" returnType="void" visibility="public">
+          <Argument type="String" name="borrowQty"/>
+        </Method>
+        <Method name="setDueDate" returnType="void" visibility="public">
+          <Argument type="Date" name="dueDate"/>
+        </Method>
+        <Method name="setRefNo" returnType="void" visibility="public">
+          <Argument type="String" name="refNo"/>
+        </Method>
+        <Method name="resetResult" returnType="void" visibility="public"/>
+        <Method name="setResult" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="setReturnQty" returnType="void" visibility="public">
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="setReturned" returnType="void" visibility="public">
+          <Argument type="String" name="qty"/>
+        </Method>
+        <Method name="resetAllFields" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+        </Method>
+        <Method name="setCirculationFields" returnType="void" visibility="public">
+          <Argument type="String" name="ref"/>
+          <Argument type="String" name="qty"/>
+          <Argument type="Date" name="date"/>
+          <Argument type="String" name="ret"/>
+        </Method>
+        <Method name="setBorrowerFields" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="setBookFields" returnType="void" visibility="public">
+          <Argument type="String" name="ISBN"/>
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="author"/>
+          <Argument type="String" name="publisher"/>
+          <Argument type="String" name="qty"/>
+          <Argument type="String" name="available"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ViewList" package="library.view" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields>
+        <Field name="tableList" type="JTable" visibility="private"/>
+        <Field name="addBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="bg" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="booksMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="borrowersMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="cancelBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="chargeMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="circulationMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="dateMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="deleteBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="detailsBtn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="home" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="jMenuBar1" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="listOptions" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="returnMenu" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="tableScrollPane" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="timeMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userLogout" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="userMenu" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="userSettings" type="javax.swing.JMenuItem" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="homeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="settingsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="logoutListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="chargeListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="returnListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="booksListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="borrowersListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="action"/>
+        </Method>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="getSelectedOption" returnType="String" visibility="public"/>
+        <Method name="initTable" returnType="void" visibility="public">
+          <Argument type="Object[][]" name="data"/>
+          <Argument type="String[]" name="header"/>
+        </Method>
+        <Method name="resizeColumnWidth" returnType="void" visibility="public"/>
+        <Method name="tableReset" returnType="void" visibility="public"/>
+        <Method name="addTableListener" returnType="void" visibility="public">
+          <Argument type="TableModelListener" name="request"/>
+        </Method>
+        <Method name="getFirstCol" returnType="String" visibility="public">
+          <Argument type="int" name="row"/>
+        </Method>
+        <Method name="tableSelectedRow" returnType="int" visibility="public"/>
+        <Method name="tableSelectedCol" returnType="int" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="String" name="date"/>
+        </Method>
+        <Method name="setTime" returnType="void" visibility="public">
+          <Argument type="String" name="time"/>
+        </Method>
+        <Method name="detailsBtnText" returnType="void" visibility="public">
+          <Argument type="String" name="txt"/>
+          <Argument type="Icon" name="icon"/>
+        </Method>
+        <Method name="enableDetailBtn" returnType="void" visibility="public"/>
+        <Method name="disableDetailBtn" returnType="void" visibility="public"/>
+        <Method name="enableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="disableDeleteBtn" returnType="void" visibility="public"/>
+        <Method name="enableAddBtn" returnType="void" visibility="public"/>
+        <Method name="disableAddBtn" returnType="void" visibility="public"/>
+        <Method name="enableButtons" returnType="void" visibility="public"/>
+        <Method name="disableButtons" returnType="void" visibility="public"/>
+        <Method name="showButtons" returnType="void" visibility="public"/>
+        <Method name="hideButtons" returnType="void" visibility="public"/>
+        <Method name="showAdd" returnType="void" visibility="public"/>
+        <Method name="hideAdd" returnType="void" visibility="public"/>
+        <Method name="showDelete" returnType="void" visibility="public"/>
+        <Method name="hideDelete" returnType="void" visibility="public"/>
+        <Method name="showDetails" returnType="void" visibility="public"/>
+        <Method name="hideDetails" returnType="void" visibility="public"/>
+        <Method name="setAddText" returnType="void" visibility="public">
+          <Argument type="String" name="str"/>
+          <Argument type="ImageIcon" name="icon"/>
+        </Method>
+        <Method name="setDeleteText" returnType="void" visibility="public">
+          <Argument type="String" name="str"/>
+          <Argument type="ImageIcon" name="icon"/>
+        </Method>
+        <Method name="tableListener" returnType="void" visibility="public">
+          <Argument type="MouseListener" name="action"/>
+        </Method>
+        <Method name="addListOptionListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="addListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="deleteListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="detailsListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="cancelListener" returnType="void" visibility="public">
+          <Argument type="ActionListener" name="request"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="book" source="library.controller.ViewListController" target="library.model.Book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="loginFrame" source="library.controller.LoginController" target="library.view.LoginPage" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="admin" source="library.controller.LoginController" target="library.model.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.AdminController" target="library.view.AdminSettings" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="AdminSettings"/>
+    <HasRelation name="bookdb" source="library.controller.ChargeOutController" target="library.util.db_book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="library.util.db_admin" target="library.model.Admin" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.TransDetailsController" target="library.view.TransactionDetails" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cirdb" source="library.controller.TransDetailsController" target="library.util.db_circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="library.util.db_circulation" target="library.util.db_connection" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="addb" source="library.controller.AdminController" target="library.util.db_admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bordb" source="library.controller.ChargeOutController" target="library.util.db_borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.ChargeOutController" target="library.view.ChargeOutForm" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="control" source="library.controller.ViewListController" target="library.controller.ViewListController" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ViewListController"/>
+    <UseRelation source="library.util.db_book" target="library.model.Book" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bookdb" source="library.controller.AddBookController" target="library.util.db_book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="addb" source="library.controller.BorrowerController" target="library.util.db_admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cirdb" source="library.controller.ChargeOutController" target="library.util.db_circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="library.util.db_book" target="library.util.db_connection" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ret" source="library.controller.ViewListController" target="library.util.db_return" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="library.util.db_admin" target="library.util.db_connection" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bordb" source="library.controller.AdminController" target="library.util.db_borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="library.util.db_borrower" target="library.model.Borrower" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="circulation" source="library.controller.ViewListController" target="library.model.Circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bordb" source="library.controller.TransDetailsController" target="library.util.db_borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="retdb" source="library.controller.TransDetailsController" target="library.util.db_return" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="borrower" source="library.controller.ViewListController" target="library.model.Borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="main" source="library.controller.ChargeOutController" target="library.controller.ChargeOutController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.HomeController" target="library.view.Home" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="admin" source="library.controller.AdminController" target="library.model.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="book" source="library.controller.TransDetailsController" target="library.model.Book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="borrower" source="library.controller.TransDetailsController" target="library.model.Borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bordb" source="library.controller.BorrowerController" target="library.util.db_borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="library.util.db_borrower" target="library.util.db_connection" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="borrower" source="library.controller.BorrowerController" target="library.model.Borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="db" source="library.util.db_return" target="library.util.db_connection" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.ViewListController" target="library.view.ViewList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ViewList"/>
+    <HasRelation name="circulation" source="library.controller.ChargeOutController" target="library.model.Circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="library.util.db_circulation" target="library.model.Circulation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bookdb" source="library.controller.ViewListController" target="library.util.db_book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="addb" source="library.controller.LoginController" target="library.util.db_admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="book" source="library.controller.ChargeOutController" target="library.model.Book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="borrower" source="library.controller.ChargeOutController" target="library.model.Borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bookdb" source="library.controller.TransDetailsController" target="library.util.db_book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="addb" source="library.controller.ViewListController" target="library.util.db_admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="form" source="library.controller.AddBookController" target="library.view.AddBook" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="frame" source="library.controller.BorrowerController" target="library.view.BorrowerFrame" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bordb" source="library.controller.ViewListController" target="library.util.db_borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="circulation" source="library.controller.TransDetailsController" target="library.model.Circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cirdb" source="library.controller.ViewListController" target="library.util.db_circulation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="book" source="library.controller.AddBookController" target="library.model.Book" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="borrower" source="library.controller.AdminController" target="library.model.Borrower" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
